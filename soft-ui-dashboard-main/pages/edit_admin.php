@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION['login'])) {
+    header("Location: Login_Admin.php");
+    exit;
+}
+
 include "koneksi.php";
 include "header.php";
 ?>
@@ -41,9 +49,8 @@ include "header.php";
                   <thead>
                     <tr>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Siswa</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kelas</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jurursan</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>
+                      <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NISN</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Alamat</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
@@ -51,7 +58,7 @@ include "header.php";
                   </thead>
                 <?php
                   $no = 1;
-                  $data = mysqli_query($koneksi, "SELECT * FROM tbl_siswa");
+                  $data = mysqli_query($koneksi, "SELECT * FROM tbl_admin");
                    foreach ($data as $mom):?>
                   <tbody>
                     <tr>
@@ -61,16 +68,13 @@ include "header.php";
                       <td>
                         <div class="d-flex px-2 py-1">
 
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?php echo $mom['Nama']; ?></h6>
+                          <div class="d-flex flex-column justify-content-center px-2 py-1">
+                            <h6 class="mb-0 text-sm"><?php echo $mom['Username']; ?></h6>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $mom['Kelas']; ?></p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success"><?php echo $mom['Jurusan']; ?></span>
+                        <p class="text-xs font-weight-bold mb-0 px-3 py-1"><?php echo $mom['Nama']; ?></p>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">25261####</span>
@@ -79,24 +83,23 @@ include "header.php";
                         <span class="text-secondary text-xs font-weight-bold"><?php echo $mom['Alamat']; ?></span>
                       </td>
 
-                      <td class="align-middle text-center">
-                        <a href="edit_siswa.php?id=<?php echo $mom['id_siswa']; ?>" 
-                          class="btn btn-sm btn-warning">
-                          <i class="fas fa-edit"></i> Edit
-                        </a>
-
-                        <a href="hapus_siswa.php?id=<?php echo $mom['id_siswa']; ?>" 
+                    <td class="align-middle text-center">
+                      <a href="Ganti_admin.php?id=<?php echo $mom['id_admin']; ?>" 
+                        class="btn btn-sm btn-warning">
+                        <i class="fas fa-edit"></i>
+                        Edit
+                      </a>
+                      <a href="hapusadmin.php?id=<?php echo $mom['id_admin']; ?>" 
                           class="btn btn-sm btn-danger"
                           onclick="return confirm('Yakin mau hapus data ini?')">
                           <i class="fas fa-trash"></i> Hapus
                         </a>
                       </td>
-
                     </tr>
 
                   </tbody>
                  <?php endforeach; ?>
-                 <a href="tambah_siswa.php" class="btn btn-primary mx-3">Tambah Siswa</a>
+                 <a href="Login_Admin.php" class="btn btn-primary mx-3">Tambah admin</a>
                 </table>
               </div>
             </div>
