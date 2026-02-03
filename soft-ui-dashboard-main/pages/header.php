@@ -2,6 +2,7 @@
 $halaman = basename($_SERVER['PHP_SELF']);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +41,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  active" href="../pages/dashborad.php">
+          <a class="nav-link <?= ($halaman == 'dashborad.php') ? 'active' : '' ?>" href="../pages/dashborad.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -60,7 +61,8 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="../pages/siswa.php">
+          <a class="nav-link <?= ($halaman == 'siswa.php') ? 'active' : '' ?>" href="../pages/siswa.php">
+
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -80,7 +82,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/edit_admin.php">
+          <a class="nav-link <?= ($halaman == 'edit_admin.php') ? 'active' : '' ?>"href="../pages/edit_admin.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>credit-card</title>
@@ -100,7 +102,8 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/calon_ketua.php">
+          <a class="nav-link <?= ($halaman == 'calon_ketua.php') ? 'active' : '' ?>" href="../pages/calon_ketua.php">
+
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>box-3d-50</title>
@@ -121,7 +124,8 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/rtl.html">
+          <a class="nav-link <?= ($halaman == 'Hasil_voting.php') ? 'active' : '' ?>" href="../pages/Hasil_voting.php">
+
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>settings</title>
