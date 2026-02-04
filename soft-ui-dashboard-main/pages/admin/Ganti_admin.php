@@ -2,15 +2,10 @@
 
 session_start();
 
-if (!isset($_SESSION['login'])) {
-    header("Location: Login_Admin.php");
-    exit;
-}
 
 
-
-include "koneksi.php";
-include "header.php";
+include "../header/koneksi.php";
+include "../header/header.php";
 
 
 // ambil id dari URL

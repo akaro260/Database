@@ -1,7 +1,7 @@
 <?php
-include "koneksi.php";
+include "../header/koneksi.php";
 
-include "header.php";
+include "../header/header.php";
 ?>
 
     <!-- End Navbar -->

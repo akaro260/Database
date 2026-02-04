@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
-include "header.php";
+include "../header/koneksi.php";
+include "../header/header.php";
 
 $data = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua");
 ?>

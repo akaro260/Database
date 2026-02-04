@@ -14,6 +14,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
   <title>
     Voting osis
   </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -22,7 +23,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
+  <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -33,7 +34,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" ../pages/dashborad.php " target="_blank">
-        <img src="../assets/img/LOGO-XPRO-NEW-2048x1365.WEBP" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="../../assets/img/LOGO-XPRO-NEW-2048x1365.WEBP" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">SMK Pesat </span>
       </a>
     </div>
@@ -41,9 +42,9 @@ $halaman = basename($_SERVER['PHP_SELF']);
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link <?= ($halaman == 'dashborad.php') ? 'active' : '' ?>" href="../pages/dashborad.php">
+          <a class="nav-link <?= ($halaman == 'dashborad.php') ? 'active' : '' ?>" href="../dashboard/dashborad.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16px" height="16px"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M304 70.1C313.1 61.9 326.9 61.9 336 70.1L568 278.1C577.9 286.9 578.7 302.1 569.8 312C560.9 321.9 545.8 322.7 535.9 313.8L527.9 306.6L527.9 511.9C527.9 547.2 499.2 575.9 463.9 575.9L175.9 575.9C140.6 575.9 111.9 547.2 111.9 511.9L111.9 306.6L103.9 313.8C94 322.6 78.9 321.8 70 312C61.1 302.2 62 287 71.8 278.1L304 70.1zM320 120.2L160 263.7L160 512C160 520.8 167.2 528 176 528L224 528L224 424C224 384.2 256.2 352 296 352L344 352C383.8 352 416 384.2 416 424L416 528L464 528C472.8 528 480 520.8 480 512L480 263.7L320 120.3zM272 528L368 528L368 424C368 410.7 357.3 400 344 400L296 400C282.7 400 272 410.7 272 424L272 528z"/> 
                 <title>shop </title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -61,10 +62,10 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= ($halaman == 'siswa.php') ? 'active' : '' ?>" href="../pages/siswa.php">
+          <a class="nav-link <?= ($halaman == 'siswa.php' || $halaman == 'edit_siswa.php' || $halaman == 'tambah_siswa.php') ? 'active' : '' ?>" href="../siswa/siswa.php">
 
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16px" height="16px"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M80 259.8L289.2 345.9C299 349.9 309.4 352 320 352C330.6 352 341 349.9 350.8 345.9L593.2 246.1C602.2 242.4 608 233.7 608 224C608 214.3 602.2 205.6 593.2 201.9L350.8 102.1C341 98.1 330.6 96 320 96C309.4 96 299 98.1 289.2 102.1L46.8 201.9C37.8 205.6 32 214.3 32 224L32 520C32 533.3 42.7 544 56 544C69.3 544 80 533.3 80 520L80 259.8zM128 331.5L128 448C128 501 214 544 320 544C426 544 512 501 512 448L512 331.4L369.1 390.3C353.5 396.7 336.9 400 320 400C303.1 400 286.5 396.7 270.9 390.3L128 331.4z"/>
                 <title>office</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -82,9 +83,9 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= ($halaman == 'edit_admin.php') ? 'active' : '' ?>"href="../pages/edit_admin.php">
+          <a class="nav-link <?= ($halaman == 'edit_admin.php' || $halaman == 'Ganti_admin.php' || $halaman == 'tambah_admin.php') ? 'active' : '' ?>"href="../admin/edit_admin.php">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16px" height="16px"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320 312C253.7 312 200 258.3 200 192C200 125.7 253.7 72 320 72C386.3 72 440 125.7 440 192C440 258.3 386.3 312 320 312zM289.5 368L350.5 368C360.2 368 368 375.8 368 385.5C368 389.7 366.5 393.7 363.8 396.9L336.4 428.9L367.4 544L368 544L402.6 405.5C404.8 396.8 413.7 391.5 422.1 394.7C484 418.3 528 478.3 528 548.5C528 563.6 515.7 575.9 500.6 575.9L139.4 576C124.3 576 112 563.7 112 548.6C112 478.4 156 418.4 217.9 394.8C226.3 391.6 235.2 396.9 237.4 405.6L272 544.1L272.6 544.1L303.6 429L276.2 397C273.5 393.8 272 389.8 272 385.6C272 375.9 279.8 368.1 289.5 368.1z"/>
                 <title>credit-card</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -102,7 +103,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= ($halaman == 'calon_ketua.php') ? 'active' : '' ?>" href="../pages/calon_ketua.php">
+          <a class="nav-link <?= ($halaman == 'calon_ketua.php' || $halaman == 'calon_ketua_edit.php') ? 'active' : '' ?>" href="../calon/calon_ketua.php">
 
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -124,7 +125,7 @@ $halaman = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= ($halaman == 'Hasil_voting.php') ? 'active' : '' ?>" href="../pages/Hasil_voting.php">
+          <a class="nav-link <?= ($halaman == 'Hasil_voting.php') ? 'active' : '' ?>" href="../voting/Hasil_voting.php">
 
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -296,6 +297,8 @@ $halaman = basename($_SERVER['PHP_SELF']);
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

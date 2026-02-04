@@ -1,8 +1,8 @@
 <?php
-include "konek.php";
-include "header.php";
+include "../header/koneksi.php";
+include "../header/header.php";
 
-$query = mysqli_query($konek, "SELECT * FROM calon ORDER BY suara DESC");
+$query = mysqli_query($koneksi, "SELECT * FROM tbl_vote ORDER BY suara DESC");
 ?>
 
 <div class="container-fluid py-4">
@@ -34,7 +34,7 @@ $query = mysqli_query($konek, "SELECT * FROM calon ORDER BY suara DESC");
                 ?>
                 <tr>
                   <td><?= $no++; ?></td>
-                  <td><?= $data['nama']; ?></td>
+                  <td><?= $data['nama_calon']; ?></td>
                   <td class="text-center">
                     <span class="badge bg-success">
                       <?= $data['suara']; ?>

@@ -1,11 +1,10 @@
 <?php
-include "header.php";
-include "koneksi.php";
+include "../header/header.php";
+include "../header/koneksi.php";
 ?>
 
    
    <div class="container-fluid py-4">
-    <?php?>
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
@@ -36,25 +35,46 @@ include "koneksi.php";
           </div>
         </form>
 
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+<?php
+$berhasil = false;
 
-            $nama    = $_POST['Nama'];
-            $kelas   = $_POST['Kelas'];
-            $jurusan = $_POST['Jurusan'];
-            $alamat  = $_POST['Alamat'];
 
-            $query = "INSERT INTO tbl_siswa (Nama, Kelas, Jurusan, Alamat)
-                      VALUES ('$nama', '$kelas', '$jurusan', '$alamat')";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if (mysqli_query($koneksi, $query)) {
-                echo "<div class='alert alert-success text-center'>Data berhasil disimpan</div>";
-            } else {
-                echo "<div class='alert alert-danger text-center'>Gagal: " . mysqli_error($koneksi) . "</div>";
-            }
-        }
-        ?>
+    $nama    = $_POST['Nama'];
+    $kelas   = $_POST['Kelas'];
+    $jurusan = $_POST['Jurusan'];
+    $alamat  = $_POST['Alamat'];
+
+    $query = "INSERT INTO tbl_siswa (Nama, Kelas, Jurusan, Alamat)
+              VALUES ('$nama', '$kelas', '$jurusan', '$alamat')";
+
+    if (mysqli_query($koneksi, $query)) {
+        $berhasil = true;
+    } 
+    }
+
+?>
+
+
+
           </div>
         </div>
       </div>
     </div>
+    
+<?php if ($berhasil): ?>
+<script>
+Swal.fire({
+    icon: 'success',
+    title: 'Berhasil!',
+    text: 'Data siswa berhasil ditambahkan',
+    timer: 2000,
+    showConfirmButton: false
+}).then(() => {
+    window.location.href = 'siswa.php';
+})
+</script>
+<?php endif; ?>
+
+  

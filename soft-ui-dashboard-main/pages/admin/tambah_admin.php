@@ -1,6 +1,6 @@
 <?php
-include "koneksi.php";
-include "header.php";
+include "../header/koneksi.php";
+include "../header/header.php";
 ?>
 
 
@@ -29,26 +29,35 @@ include "header.php";
   
 </form>
 <?php
+
+
+$berhasil = false;
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nama     = $_POST['Nama'];
     $username = $_POST['Username'];
-    $password = md5($_POST['Password']);
+    $password = $_POST['Password']; // md5 nanti aja
     $alamat   = $_POST['Alamat'];
 
-   // sementara md5 dulu
-
     $query = "INSERT INTO tbl_admin (Nama, Username, Password, Alamat)
-              VALUES ('$nama', '$username', '$password','$alamat')";
+              VALUES ('$nama', '$username', '$password', '$alamat')";
 
     if (mysqli_query($koneksi, $query)) {
-        echo "<div class='alert alert-success text-center'>
-                Admin berhasil ditambahkan
-              </div>";
-    } else {
-        echo "<div class='alert alert-danger text-center'>
-                Gagal: " . mysqli_error($koneksi) . "
-              </div>";
-    }
+        $berhasil = true;
+    } 
 }
 ?>
+<?php if ($berhasil): ?>
+<script>
+Swal.fire({
+  icon: 'success',
+  title: 'Berhasil!',
+  text: 'Admin berhasil ditambahkan'
+}).then(() => {
+  window.location.href = 'edit_admin.php';
+});
+</script>
+<?php endif; ?>
+

@@ -1,12 +1,13 @@
 <?php
-include "koneksi.php";
+include "../header/koneksi.php";
+
+$berhasil = false;
 
 
-
-// ambil id dari URL
+// ambil id
 $id = $_GET['id'];
 
-// ambil data siswa berdasarkan id
+// ambil data siswa
 $data = mysqli_query($koneksi, "SELECT * FROM tbl_siswa WHERE id_siswa='$id'");
 $siswa = mysqli_fetch_assoc($data);
 
@@ -26,20 +27,15 @@ if (isset($_POST['update'])) {
         WHERE id_siswa='$id'
     ");
 
-      header("Location: siswa.php");
-      exit;
-      
+    if ($update) {
+        $berhasil = true;
+        // refresh data biar form ke-update
+    } 
 }
-include "header.php";
+
+include "../header/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Edit Siswa</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+
 
 <div class="container mt-5">
   <div class="card">
@@ -79,6 +75,15 @@ include "header.php";
     </div>
   </div>
 </div>
-
-</body>
-</html>
+<?php if ($berhasil): ?>
+<script>
+Swal.fire({
+  icon: 'success',
+  title: 'Berhasil!',
+  text: 'Data siswa berhasil diperbarui',
+  confirmButtonText: 'OK'
+}).then(() => {
+  window.location.href = 'siswa.php';
+});
+</script>
+<?php endif; ?>
