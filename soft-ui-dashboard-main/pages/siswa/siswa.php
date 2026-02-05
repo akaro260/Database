@@ -44,10 +44,12 @@ include "../header/header.php";
                         </p>
                       </td>
                       <td>
-                        <div class="d-flex px-2 py-1">
-
+                        <div class="d-flex px-2 py-1 gap-2 align-items-center">
+                          <div><img src="../../assets/img/<?php echo $mom['foto']; ?>" width="40" class="rounded shadow" alt=""></div>
                           <div class="d-flex flex-column justify-content-center">
+                            
                             <h6 class="mb-0 text-sm"><?php echo $mom['Nama']; ?></h6>
+                            <p class="text-xs text-secondary mb-0"><?php echo $mom['email']; ?></p>
                           </div>
                         </div>
                       </td>

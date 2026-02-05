@@ -47,9 +47,12 @@ include "../header/header.php";
                       </td>
                       <td>
                         <div class="d-flex px-2 py-1">
-
+                          <div class="d-flex flex-column justify-content-center px-2 py-1">
+                            <img src="../../assets/img/<?php echo $mom['foto']; ?>" width="40" class="rounded shadow" alt="">
+                          </div>
                           <div class="d-flex flex-column justify-content-center px-2 py-1">
                             <h6 class="mb-0 text-sm"><?php echo $mom['Username']; ?></h6>
+                            <p class="text-xs text-secondary mb-0"><?php echo $mom['email'];?></p>
                           </div>
                         </div>
                       </td>
@@ -63,7 +66,7 @@ include "../header/header.php";
                         <span class="text-secondary text-xs font-weight-bold"><?php echo $mom['Alamat']; ?></span>
                       </td>
 
-                      <td class="align-middle text-center">
+                      <td class="align-middle text-center pt-4">
                         <a href="Ganti_admin.php?id=<?php echo $mom['id_admin']; ?>" class="btn btn-sm btn-warning">
                           <i class="fas fa-edit"></i>
                           Edit

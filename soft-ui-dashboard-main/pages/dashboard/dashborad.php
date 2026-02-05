@@ -49,10 +49,15 @@ include "../header/header.php";
                       <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
                         <i class="ni ni-active-40 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
                       </div>
+                      <?php ?>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                        357
+                      <?php $query = mysqli_query($koneksi , "SELECT COUNT(id_calon) AS jumlah_calon FROM tbl_calon_ketua;");
+                      $row = mysqli_fetch_array($query); 
+                      echo $row['jumlah_calon'];
+                       ?>
                       </h5>
-                      <span class="text-white text-sm">Click Events</span>
+                      <span class="text-white text-sm">Jumlah Calon Ketua</span>
+                      
                     </div>
                     <div class="col-4">
                       <div class="dropstart text-end mb-6">
