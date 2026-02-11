@@ -16,12 +16,15 @@ include "../header/header.php";
                   <div class="row">
                     <div class="col-8 text-start">
                       <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                        <i class="ni ni-circle-08 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+                        <i class="fa-solid fa-graduation-cap circle-08 text-dark text-gradient text-lg opacity-10 mt-1" aria-hidden="true"></i>
                       </div>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                        1600
+                          <?php $query = mysqli_query($koneksi , "SELECT COUNT(id_siswa) AS jumlah_Siswa FROM tbl_siswa;");
+                      $row = mysqli_fetch_array($query); 
+                      echo $row['jumlah_Siswa'];
+                       ?>
                       </h5>
-                      <span class="text-white text-sm">Users Active</span>
+                      <span class="text-white text-sm ">Jumlah Siswa</span>
                     </div>
                     <div class="col-4">
                       <div class="dropdown text-end mb-6">
@@ -34,7 +37,7 @@ include "../header/header.php";
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
+                     
                     </div>
                   </div>
                 </div>
@@ -47,7 +50,7 @@ include "../header/header.php";
                   <div class="row">
                     <div class="col-8 text-start">
                       <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                        <i class="ni ni-active-40 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+                        <i class="fa-solid fa-user-tie circle-08 text-dark text-gradient text-lg opacity-10 mt-1" aria-hidden="true"></i>
                       </div>
                       <?php ?>
                       <h5 class="text-white font-weight-bolder mb-0 mt-3">
@@ -70,7 +73,7 @@ include "../header/header.php";
                           <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                         </ul>
                       </div>
-                      <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+124%</p>
+                      
                     </div>
                   </div>
                 </div>

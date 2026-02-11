@@ -2,7 +2,7 @@
 include "../header/koneksi.php";
 include "../header/header.php";
 
-$query = mysqli_query($koneksi, "SELECT * FROM tbl_vote ORDER BY suara DESC");
+$query = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua ORDER BY jumlah_suara DESC");
 ?>
 
 <div class="container-fluid py-4">
@@ -18,29 +18,34 @@ $query = mysqli_query($koneksi, "SELECT * FROM tbl_vote ORDER BY suara DESC");
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-3">
 
-            <table class="table align-items-center mb-0">
+            <table class="table align-items-center mb-0 ">
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Nama Calon</th>
-                  <th class="text-center">Jumlah Suara</th>
+                  <thead>
+                    <tr>
+                      <th class="px-3">No</th>
+                      <th>Nama Calon</th>
+                      <th class="text-center">Jumlah Suara</th>
+                    </tr>
+                  </thead>
+
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody class="align-items-center mb-0">
                 <?php
                 $no = 1;
                 while ($data = mysqli_fetch_assoc($query)) {
-                ?>
-                <tr>
-                  <td><?= $no++; ?></td>
-                  <td><?= $data['nama_calon']; ?></td>
-                  <td class="text-center">
-                    <span class="badge bg-success">
-                      <?= $data['suara']; ?>
-                    </span>
-                  </td>
-                </tr>
+                  ?>
+                  <tr>
+                    <td class=""><?= $no++; ?></td>
+                    <td class=""><?= $data['nama_calon']; ?></td>
+                    <td class="text-center">
+                      <span class="badge bg-success">
+                        <?= $data['jumlah_suara']; ?>
+                      </span>
+                    </td>
+                  </tr>
                 <?php } ?>
               </tbody>
 
