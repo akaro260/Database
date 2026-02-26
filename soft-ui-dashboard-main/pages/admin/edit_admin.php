@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 
 include "../header/koneksi.php";
@@ -81,7 +81,7 @@ include "../header/header.php";
 
                   </tbody>
                 <?php endforeach; ?>
-                <a href="tambah_admin.php" class="btn btn-primary mx-3">Tambah admin</a>
+                <a href="tambah_admin.php" class="btn btn-info mx-3">Tambah admin</a>
               </table>
             </div>
           </div>

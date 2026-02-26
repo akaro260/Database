@@ -11,7 +11,7 @@ include "../header/header.php";
           <div class="row">
             <div class="col-lg-6 col-md-6 col-12">
               <div class="card">
-                <span class="mask bg-primary opacity-10 border-radius-lg"></span>
+                <span class="mask bg-info opacity-10 border-radius-lg"></span>
                 <div class="card-body p-3 position-relative">
                   <div class="row">
                     <div class="col-8 text-start">

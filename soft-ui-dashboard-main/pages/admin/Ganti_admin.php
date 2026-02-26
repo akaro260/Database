@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include "../header/koneksi.php";
 
 // ambil id dari URL

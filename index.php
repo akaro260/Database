@@ -1,6 +1,10 @@
 <?php
 session_start();
 include "soft-ui-dashboard-main/pages/header/koneksi.php";
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
+}
 $calon = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua");
 ?>
 
@@ -60,7 +64,10 @@ $calon = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua");
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+      <a class="btn-getstarted gap-4" href="index.html#about"><?= $_SESSION['nama'] ?></a>
+      <a href="loguot.php" class="btn btn-danger" onclick="return confirm('Yakin mau logout?')" style="font-size: 14px; padding: 8px 25px; margin: 0px 0px 0px 10px; border-radius: 50px; transition: 0.3s">
+        Logout
+      </a>
 
     </div>
   </header>
@@ -80,33 +87,38 @@ $calon = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua");
         </p>
 
         <form action="soft-ui-dashboard-main/pages/voting/Tambahin_vote.php" method="POST" id="formvote">
-          <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="row g-4 justify-content-center mb-1" data-aos="fade-up" data-aos-delay="200">
             <?php
             $no = 1;
             while ($data = mysqli_fetch_assoc($calon)) {
               ?>
-              <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                <div class="card calon-card shadow-lg  rounded-4 h-100 position-relative "
+
+              <div class="col-lg-4 col-md-6">
+                <div class="card calon-card shadow-lg rounded-4 h-100 position-relative"
                   onclick="pilihCalon(<?= $data['id_calon'] ?>, this)" style="cursor:pointer;">
-                  <!-- Nomor -->
+
                   <span class="position-absolute top-0 start-0 m-3 badge bg-primary fs-6">
                     No <?= $no++; ?>
                   </span>
-                  <!-- Foto -->
-                  <img src="soft-ui-dashboard-main/assets/img/<?= $data['foto']; ?>" class="card-img-top rounded-top-4"
-                    style="height:400px; object-fit:cover;" alt="<?= $data['nama_calon']; ?>">
+
+                  <!-- GAMBAR -->
+                  <img src="soft-ui-dashboard-main/assets/img/<?= htmlspecialchars($data['foto']); ?>"
+                    class="card-img-top rounded-top-4" style="height:400px; object-fit:cover;"
+                    alt="<?= htmlspecialchars($data['nama_calon']); ?>">
+
                   <div class="card-body text-center">
-                    <h5 class="fw-bold"><?= $data['nama_calon']; ?></h5>
-                    <p class="text-muted"><?= $data['kelas']; ?></p>
-                    <p class="small">
-                      <?= $data['visi']; ?>
-                    </p>
+                    <h5 class="fw-bold"><?= htmlspecialchars($data['nama_calon']); ?></h5>
+                    <p class="text-muted"><?= htmlspecialchars($data['kelas']); ?></p>
+                    <p class="small"><?= htmlspecialchars($data['visi']); ?></p>
                   </div>
+
                 </div>
               </div>
+
             <?php } ?>
+
           </div>
-          
+
           <div class="text-center">
             <input type="hidden" name="id_calon" id="id_calon">
             <button type="submit" class="btn btn-success w-50 mt-3 rounded-pill" data-aos="zoom-in" id="btnPILIH"
@@ -149,49 +161,49 @@ $calon = mysqli_query($koneksi, "SELECT * FROM tbl_calon_ketua");
   <script src="assets/js/main.js"></script>
 
   <script>
-function pilihCalon(id_calon, card) {
-  // isi hidden input
-  document.getElementById('id_calon').value = id_calon;
+    function pilihCalon(id_calon, card) {
+      // isi hidden input
+      document.getElementById('id_calon').value = id_calon;
 
-  // aktifkan tombol
-  document.getElementById('btnPILIH').disabled = false;
+      // aktifkan tombol
+      document.getElementById('btnPILIH').disabled = false;
 
-  // hapus border dari semua card
-  let semuaCard = document.querySelectorAll('.calon-card');
-  semuaCard.forEach(function(c){
-    c.classList.remove('border-primary', 'border-info');
-  });
+      // hapus border dari semua card
+      let semuaCard = document.querySelectorAll('.calon-card');
+      semuaCard.forEach(function (c) {
+        c.classList.remove('border-primary', 'border-info');
+      });
 
-  // beri border ke card yang dipilih
-  card.classList.add('border-primary', 'border-3');
-}
+      // beri border ke card yang dipilih
+      card.classList.add('border-primary', 'border-3');
+    }
   </script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<?php if (isset($_SESSION['vote_sukses'])): ?>
-<script>
-Swal.fire({
-    icon: 'success',
-    title: 'Berhasil!',
-    text: 'Voting kamu berhasil disimpan!',
-    confirmButtonColor: '#198754'
-});
-</script>
-<?php 
-unset($_SESSION['vote_sukses']); 
-endif; ?>
+  <?php if (isset($_SESSION['vote_sukses'])): ?>
+    <script>
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Voting kamu berhasil disimpan!',
+        confirmButtonColor: '#198754'
+      });
+    </script>
+    <?php
+    unset($_SESSION['vote_sukses']);
+  endif; ?>
 
-<?php if (isset($_SESSION['vote_error'])): ?>
-<script>
-Swal.fire({
-    icon: 'error',
-    title: 'Gagal!',
-    text: 'Voting gagal disimpan!',
-});
-</script>
-<?php 
-unset($_SESSION['vote_error']); 
-endif; ?>
+  <?php if (isset($_SESSION['vote_error'])): ?>
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal!',
+        text: 'Voting gagal disimpan!',
+      });
+    </script>
+    <?php
+    unset($_SESSION['vote_error']);
+  endif; ?>
 
 </body>
 
