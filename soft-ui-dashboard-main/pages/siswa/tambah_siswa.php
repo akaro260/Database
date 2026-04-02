@@ -36,6 +36,17 @@ include "../header/koneksi.php";
                 <label class="form-label">Alamat</label>
                 <input type="text" name="Alamat" class="form-control" required>
               </div>
+
+                <div class="mb-3">
+                <label class="form-label">password</label>
+                <input type="text" name="password" class="form-control" required>
+              </div>
+
+                <div class="mb-3">
+                <label class="form-label">username</label>
+                <input type="text" name="username" class="form-control" required>
+              </div>
+
               <div class="mb-3">
                 <label class="form-label">Foto</label>
                 <input type="file" name="foto" class="form-control" required>
@@ -55,6 +66,9 @@ include "../header/koneksi.php";
             $kelas = $_POST['Kelas'];
             $jurusan = $_POST['Jurusan'];
             $alamat = $_POST['Alamat'];
+            $password = $_POST['password'];
+            $username = $_POST['username'];
+
             $folder = "../../assets/img/";
 
             $namaFile = $_FILES["foto"]["name"];
@@ -64,8 +78,8 @@ include "../header/koneksi.php";
 
             move_uploaded_file($tmpFile, $folder . $namabaru);
 
-            $query = "INSERT INTO tbl_siswa (foto, Nama, Email, Kelas, Jurusan, Alamat)
-              VALUES ('$namabaru','$nama','$email','$kelas', '$jurusan', '$alamat')";
+            $query = "INSERT INTO tbl_siswa (foto, Nama, Email, Kelas, Jurusan, Alamat,password,Username)
+              VALUES ('$namabaru','$nama','$email','$kelas', '$jurusan', '$alamat','$password','$username')";
 
             if (mysqli_query($koneksi, $query)) {
               $berhasil = true;

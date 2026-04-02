@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $tanggal = date('Y-m-d H:i:s');
 
     $insert = mysqli_query($koneksi, "
-        INSERT INTO tbl_vote (id_calon, tanggal_vote, id_nama)
+        INSERT INTO tbl_voting (id_calon, tanggal_vote, id_siswa)
         VALUES ('$id_calon', '$tanggal', 0)
     ");
 
